@@ -242,3 +242,8 @@ override_doctype_class = {
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+fixtures = [
+    {"dt": "Custom Field", "filters": [["module", "=", "Gestion de Paie"]]},
+    {"dt": "Client Script", "filters": [["enabled", "=", 1],["module", "=", "Gestion de Paie"]]},
+    {"dt": "Server Script", "filters": [["disabled", "=", 0],["module", "=", "Gestion de Paie"]]},
+]
