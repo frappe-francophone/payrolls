@@ -1,0 +1,113 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-06-12 08:57:02.527347",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "employee",
+  "column_break_huee",
+  "element",
+  "section_break_tbtp",
+  "start_date",
+  "column_break_emnb",
+  "end_date",
+  "ajouter",
+  "section_break_xlmb",
+  "update_admin_infos_child"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_huee",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "element",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Element",
+   "options": "\nJoinning\nBranch\nDepartement\nDesignation\nGrade",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_tbtp",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_emnb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date"
+  },
+  {
+   "fieldname": "section_break_xlmb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "update_admin_infos_child",
+   "fieldtype": "Table",
+   "label": "Update Admin Infos child",
+   "options": "Update Admin Infos child",
+   "read_only": 1
+  },
+  {
+   "fieldname": "ajouter",
+   "fieldtype": "Button",
+   "label": "Ajouter",
+   "max_height": "670 px",
+   "width": "45"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2025-06-12 10:00:15.567541",
+ "modified_by": "Administrator",
+ "module": "Gestion de Paie",
+ "name": "Update Admin Infos",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

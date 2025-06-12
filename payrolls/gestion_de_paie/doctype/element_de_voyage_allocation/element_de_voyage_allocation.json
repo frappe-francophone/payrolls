@@ -1,18 +1,64 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2025-06-10 18:33:52.339284",
+ "autoname": "naming_series:",
+ "creation": "2022-11-10 11:54:13.632651",
  "doctype": "DocType",
+ "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "section_break_u7tf",
+  "naming_series",
+  "employee",
+  "nom_complet",
+  "column_break_5",
+  "company",
+  "from_date",
+  "to_date",
   "amended_from",
-  "serie"
+  "section_break_10",
+  "element_de_voyage_details"
  ],
  "fields": [
   {
-   "fieldname": "section_break_u7tf",
-   "fieldtype": "Section Break"
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Serie",
+   "options": "HR-VOY-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Employee",
+   "options": "Employee"
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "nom_complet",
+   "fieldtype": "Data",
+   "label": "Nom Complet",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date"
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date"
   },
   {
    "fieldname": "amended_from",
@@ -21,24 +67,27 @@
    "no_copy": 1,
    "options": "Element de Voyage Allocation",
    "print_hide": 1,
-   "read_only": 1,
-   "search_index": 1
+   "read_only": 1
   },
   {
-   "fieldname": "serie",
-   "fieldtype": "Select",
-   "label": "Serie",
-   "options": "HR-VOY-.YYYY.-"
+   "fieldname": "section_break_10",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "element_de_voyage_details",
+   "fieldtype": "Table",
+   "label": "Element de Voyage Details",
+   "options": "Element de Voyage Details"
   }
  ],
- "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-06-10 18:34:19.484903",
+ "modified": "2022-11-17 10:51:48.482778",
  "modified_by": "Administrator",
  "module": "Gestion de Paie",
  "name": "Element de Voyage Allocation",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {
@@ -51,12 +100,11 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
-   "submit": 1,
    "write": 1
   }
  ],
- "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

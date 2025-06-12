@@ -1,0 +1,64 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-06-12 08:53:43.372740",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "ajust_date",
+  "employee",
+  "element",
+  "start_date",
+  "end_date",
+  "now"
+ ],
+ "fields": [
+  {
+   "fieldname": "element",
+   "fieldtype": "Select",
+   "label": "Element",
+   "options": "Joinning\nBranch\nDepartement\nDesignation\nGrade"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date"
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date"
+  },
+  {
+   "fieldname": "ajust_date",
+   "fieldtype": "Date",
+   "label": "Ajust Date"
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Employee",
+   "options": "Employee"
+  },
+  {
+   "default": "0",
+   "fieldname": "now",
+   "fieldtype": "Check",
+   "label": "Now"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-06-12 09:10:01.215389",
+ "modified_by": "Administrator",
+ "module": "Gestion de Paie",
+ "name": "Update Admin Infos child",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

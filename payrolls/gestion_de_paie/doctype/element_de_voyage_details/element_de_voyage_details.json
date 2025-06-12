@@ -1,32 +1,70 @@
 {
  "actions": [],
- "allow_rename": 1,
- "creation": "2025-06-10 18:35:01.858313",
+ "autoname": "autoincrement",
+ "creation": "2022-11-10 12:16:09.578214",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "code"
+  "code",
+  "nom",
+  "element_de_voyage",
+  "disponible",
+  "en_cours",
+  "utilise",
+  "reste"
  ],
  "fields": [
   {
+   "fieldname": "element_de_voyage",
+   "fieldtype": "Link",
+   "label": "Element de Voyage",
+   "options": "Element de Voyage"
+  },
+  {
+   "fieldname": "disponible",
+   "fieldtype": "Int",
+   "label": "Disponible"
+  },
+  {
+   "fieldname": "utilise",
+   "fieldtype": "Int",
+   "label": "Utilise"
+  },
+  {
+   "fieldname": "reste",
+   "fieldtype": "Int",
+   "label": "Reste"
+  },
+  {
+   "fieldname": "en_cours",
+   "fieldtype": "Int",
+   "label": "En Cours"
+  },
+  {
    "fieldname": "code",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Code",
    "options": "Dependant"
+  },
+  {
+   "fetch_from": "code.nom_complet",
+   "fieldname": "nom",
+   "fieldtype": "Data",
+   "label": "Nom"
   }
  ],
- "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-06-10 18:35:29.484630",
+ "modified": "2022-11-17 10:11:55.775460",
  "modified_by": "Administrator",
  "module": "Gestion de Paie",
  "name": "Element de Voyage Details",
+ "naming_rule": "Autoincrement",
  "owner": "Administrator",
  "permissions": [],
- "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []
