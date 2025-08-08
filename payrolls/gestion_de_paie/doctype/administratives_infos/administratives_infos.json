@@ -1,34 +1,45 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2025-06-12 08:29:25.570528",
+ "creation": "2025-08-08 06:09:23.417211",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "company",
+  "elements",
+  "value",
   "employee",
-  "date_ajust",
-  "element",
   "start_date",
   "end_date",
-  "now"
+  "year",
+  "month",
+  "current_occupation"
  ],
  "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "elements",
+   "fieldtype": "Link",
+   "label": "Elements",
+   "options": "DocType",
+   "read_only": 1
+  },
+  {
+   "fieldname": "value",
+   "fieldtype": "Data",
+   "label": "Value",
+   "read_only": 1
+  },
   {
    "fieldname": "employee",
    "fieldtype": "Link",
    "label": "Employee",
    "options": "Employee"
-  },
-  {
-   "fieldname": "date_ajust",
-   "fieldtype": "Date",
-   "label": "Date Ajust"
-  },
-  {
-   "fieldname": "element",
-   "fieldtype": "Select",
-   "label": "Element",
-   "options": "Joinning\nBranch\nDepartement\nDesignation\nGrade"
   },
   {
    "fieldname": "start_date",
@@ -41,19 +52,31 @@
    "label": "End Date"
   },
   {
+   "fieldname": "year",
+   "fieldtype": "Float",
+   "label": "Years",
+   "read_only": 1
+  },
+  {
+   "fieldname": "month",
+   "fieldtype": "Float",
+   "label": "Month",
+   "read_only": 1
+  },
+  {
    "default": "0",
-   "fieldname": "now",
+   "fieldname": "current_occupation",
    "fieldtype": "Check",
-   "label": "Nows"
+   "label": "Current Occupation"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-08-08 23:08:05.270471",
+ "modified": "2025-08-08 23:05:29.479428",
  "modified_by": "Administrator",
  "module": "Gestion de Paie",
- "name": "Stories Employee Admin",
+ "name": "Administratives infos",
  "owner": "Administrator",
  "permissions": [
   {
