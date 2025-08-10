@@ -1,4 +1,3 @@
-
 {
  "actions": [],
  "allow_import": 1,
@@ -9,17 +8,21 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "initial",
+  "section_break_oahl",
   "code",
   "description",
-  "conge_days",
-  "conge_days_5_years",
-  "basic_salary_per_day",
+  "detail_categories",
   "column_break_7",
-  "basic_salary_per_hour",
-  "logement",
-  "transport",
-  "conge_days_final_settlement",
-  "conge_year_final_settlement"
+  "basic_salary",
+  "min",
+  "max",
+  "section_break_tkxk",
+  "accommodation",
+  "transportation",
+  "column_break_rret",
+  "echelon",
+  "position_seniority"
  ],
  "fields": [
   {
@@ -38,56 +41,72 @@
    "reqd": 1
   },
   {
-   "fieldname": "conge_days",
-   "fieldtype": "Float",
-   "in_list_view": 1,
-   "label": "Conge Days",
-   "reqd": 1
-  },
-  {
-   "fieldname": "conge_days_5_years",
-   "fieldtype": "Float",
-   "label": "Conge Days 5 Years",
-   "reqd": 1
-  },
-  {
-   "fieldname": "basic_salary_per_day",
-   "fieldtype": "Currency",
-   "label": "Basic Salary Per Day"
-  },
-  {
    "fieldname": "column_break_7",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "basic_salary_per_hour",
+   "default": "0",
+   "fieldname": "initial",
+   "fieldtype": "Check",
+   "label": "Initial"
+  },
+  {
+   "fieldname": "section_break_oahl",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "detail_categories",
+   "fieldtype": "Data",
+   "label": "Detail Categories"
+  },
+  {
+   "fieldname": "basic_salary",
    "fieldtype": "Currency",
-   "label": "Basic Salary Per Hour"
+   "label": "Basic Salary",
+   "reqd": 1
   },
   {
-   "fieldname": "logement",
+   "fieldname": "min",
    "fieldtype": "Float",
-   "label": "Logement"
+   "label": "Min"
   },
   {
-   "fieldname": "transport",
+   "fieldname": "max",
+   "fieldtype": "Float",
+   "label": "Max"
+  },
+  {
+   "fieldname": "section_break_tkxk",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_rret",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "echelon",
+   "fieldtype": "Float",
+   "label": "Echelon"
+  },
+  {
+   "fieldname": "position_seniority",
+   "fieldtype": "Float",
+   "label": "Position Seniority"
+  },
+  {
+   "fieldname": "accommodation",
    "fieldtype": "Currency",
-   "label": "Transport"
+   "label": "Accommodation"
   },
   {
-   "fieldname": "conge_days_final_settlement",
-   "fieldtype": "Float",
-   "label": "Conge Days Final Settlement"
-  },
-  {
-   "fieldname": "conge_year_final_settlement",
-   "fieldtype": "Float",
-   "label": "Conge Year Final Settlement"
+   "fieldname": "transportation",
+   "fieldtype": "Currency",
+   "label": "Transportation"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-06-19 15:41:29.461986",
+ "modified": "2025-08-10 00:54:12.124945",
  "modified_by": "Administrator",
  "module": "Gestion de Paie",
  "name": "Employee Category Details",
@@ -120,6 +139,7 @@
    "write": 1
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []
