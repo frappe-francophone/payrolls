@@ -26,7 +26,7 @@ app_license = "mit"
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/payrolls/css/payrolls.css"
-app_include_js = "/assets/payrolls/js/custom_employee.js"
+# app_include_js = "/assets/payrolls/public/js/custom_employee.js"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/payrolls/css/payrolls.css"
@@ -43,8 +43,9 @@ app_include_js = "/assets/payrolls/js/custom_employee.js"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
-# doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
+doctype_js = {"Employee" : "public/js/custom_employee.js"}
+doctype_js = {"HR Settings" : "public/js/custom_hr_settings.js"}
+# doctype_list_js = {"doctype" : "public/js/custom_employee.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
 
