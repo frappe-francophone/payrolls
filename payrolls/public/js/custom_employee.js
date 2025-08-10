@@ -31,5 +31,8 @@ frappe.ui.form.on('Employee', {
             frm.set_df_property('contract_end_date', 'reqd', 1);
             frm.set_df_property('notice_number_of_days', 'reqd', 1);
         }
-    }
+    },
+
+    
 });
+
