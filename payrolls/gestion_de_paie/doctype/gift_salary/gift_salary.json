@@ -1,0 +1,50 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-08-17 07:45:04.645497",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "composante_salariale",
+  "code",
+  "montant"
+ ],
+ "fields": [
+  {
+   "fieldname": "montant",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Montant",
+   "reqd": 1
+  },
+  {
+   "fieldname": "composante_salariale",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Composante Salariale",
+   "options": "Salary Component",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "composante_salariale.salary_component_abbr",
+   "fieldname": "code",
+   "fieldtype": "Data",
+   "label": "Code"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-17 07:57:28.943088",
+ "modified_by": "Administrator",
+ "module": "Gestion de Paie",
+ "name": "Gift Salary",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

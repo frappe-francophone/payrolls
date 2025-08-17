@@ -19,9 +19,9 @@
   "max",
   "section_break_tkxk",
   "accommodation",
-  "transportation",
-  "column_break_rret",
   "echelon",
+  "column_break_rret",
+  "transportation",
   "position_seniority"
  ],
  "fields": [
@@ -107,7 +107,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-08-10 14:41:48.524008",
+ "modified": "2025-08-12 21:33:46.643153",
  "modified_by": "Administrator",
  "module": "Gestion de Paie",
  "name": "Employee Category Details",
