@@ -1,6 +1,25 @@
 [
  {
   "allow_guest": 0,
+  "api_method": null,
+  "cron_format": null,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Server Script",
+  "doctype_event": "Before Save",
+  "enable_rate_limit": 0,
+  "event_frequency": "All",
+  "modified": "2025-09-25 12:02:48.723521",
+  "module": "Gestion de Paie",
+  "name": "Insert Leave On Save",
+  "rate_limit_count": 5,
+  "rate_limit_seconds": 86400,
+  "reference_doctype": "Salary Slip",
+  "script": "# Récupérer le document de l'employé\r\nemployee_doc = frappe.get_doc('Employee', doc.employee)\r\n\r\n# Obtenir la date et l'heure actuelles\r\ndate_time_string = frappe.utils.now()\r\n\r\n# Convertir les dates de début et de fin en objets date\r\nstart_date = frappe.utils.getdate(doc.start_date)\r\nend_date = frappe.utils.getdate(doc.end_date)\r\n\r\n# Initialiser une variable pour vérifier si des modifications ont été enregistrées\r\nsave = 0\r\n\r\n# Requête SQL pour récupérer les jours de congé pris par type de congé\r\nquery = \"\"\"\r\nSELECT\r\n    s.leave_type,\r\n    SUM(\r\n        DATEDIFF(\r\n            LEAST(s.to_date, %(end_date)s),\r\n            GREATEST(s.from_date, %(start_date)s)\r\n        ) + 1\r\n    ) AS total_leave_days\r\nFROM `tabLeave Application` s\r\nWHERE s.employee = %(employee)s\r\n    AND s.docstatus = 1\r\n    AND (\r\n        (s.from_date <= %(end_date)s AND s.to_date >= %(start_date)s) -- Chevauchement partiel ou total\r\n    )\r\nGROUP BY s.leave_type;\r\n\"\"\"\r\n\r\n# Paramètres pour la requête SQL\r\nparams = {\r\n    \"employee\": doc.employee,  # Assurez-vous que doc.employee est correctement défini\r\n    \"start_date\": start_date,  # Assurez-vous que start_date est au format 'YYYY-MM-DD'\r\n    \"end_date\": end_date      # Assurez-vous que end_date est au format 'YYYY-MM-DD'\r\n}\r\n\r\n# Exécuter la requête SQL avec les paramètres\r\nresults = frappe.db.sql(query, params, as_dict=True)\r\n\r\n# Vérifier si des résultats ont été retournés\r\nif results:\r\n    \r\n    for send in results:\r\n        # Requête SQL pour vérifier si le type de congé existe déjà dans \"Conge Pris\"\r\n        query_two = \"\"\"\r\n        SELECT\r\n            name\r\n        FROM `tabConge Pris`\r\n        WHERE parent = %s AND leave_type = %s LIMIT 1;\r\n        \"\"\"\r\n\r\n        # Exécuter la requête SQL avec les paramètres\r\n        results_two = frappe.db.sql(query_two, (doc.name, send.leave_type), as_dict=True)\r\n\r\n        # Si le type de congé existe déjà, mettre à jour le nombre de jours\r\n        if results_two and len(results_two) > 0:  # Vérifier que results_two n'est pas vide\r\n            save = 1\r\n            frappe.db.set_value('Conge Pris', results_two[0].name, 'jour', send.total_leave_days)\r\n            \r\n            # Réinitialiser le statut du document pour permettre la mise à jour\r\n            doc_conge = frappe.get_doc('Conge Pris', results_two[0].name)\r\n            doc_conge.db_set('jour', send.total_leave_days, commit=True)\r\n            \r\n            # Valider les modifications\r\n            #frappe.db.commit()\r\n            #frappe.msgprint(f'Trouvé encore {send.get(\"leave_type\")}')\r\n        else:\r\n            # Ajouter une nouvelle entrée dans \"Conge Pris\"\r\n            doc.append(\"conge_pris\", {\r\n                \"leave_type\": send.get('leave_type'),\r\n                \"jour\": send.get('total_leave_days'),\r\n                \"fraction\": 0\r\n            })\r\n\r\n    #doc.save() # Sauvegarde le document principal, ce qui commit les changements.",
+  "script_type": "DocType Event"
+ },
+ {
+  "allow_guest": 0,
   "api_method": "get_employee_dependant2",
   "cron_format": null,
   "disabled": 0,
